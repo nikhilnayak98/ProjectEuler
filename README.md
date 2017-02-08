@@ -1,2 +1,2 @@
-# ProjectEuler+
-HackerRank
+# ProjectEuler
+https://projecteuler.net/

@@ -11,7 +11,7 @@ public class LatticePath {
 
 	public static void main (String[] args) {
 		long k = 2;
-		int n = 90;
+		int n = 200;
 		for(int i=0;i<n;i++) {
 			arr[i][0]=k++;
 		}

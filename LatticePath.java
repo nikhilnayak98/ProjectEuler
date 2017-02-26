@@ -5,45 +5,36 @@
  * Brief Desc:
  */
 
-import java.math.BigInteger;
-
 public class LatticePath {
-
-	static BigInteger arr[][] = new BigInteger[200][200];
-
-	public static void main (String[] args) {
-		BigInteger k = BigInteger.valueOf(0);
-		int n = 199;
-		int t = 2;
-		for(int i=0;i<n;i++) {
-			arr[i][0] = k.add(BigInteger.valueOf(t));
-			arr[0][i]=k.add(BigInteger.valueOf(t));
-			t++;
-		}
-
-		System.out.println();
-
-		for(int p=1;p<n;p++) {
-			for(int i=p;i<n;i++) {
-				for(int j=i;i<n;i++) {
-					arr[i][j] = arr[i][j-1].add(arr[i-1][j]);
-					arr[j][i] = arr[i][j-1].add(arr[i-1][j]);
-					//arr[i][i] = arr[i-1][i].add(arr[i][i-1]);
-				}
-			}
-		}
-
-		System.out.println();
-
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				System.out.print(arr[i][j] + " ");
-			}
-			System.out.println();
-		}
-		
-		System.out.println(arr[200][200]);
-
-	}
-
+  
+  public static void main (String[] args) throws Exception {
+    int size = 21;
+    long[][] pts=new long[size][size];
+    
+    pts[0][0] = 1;
+    for(int i = 1; i < size; i++) {
+      pts[i][0] = 1;
+      pts[0][i] = 1;
+    }
+    
+    for(int r = 1; r < size; r++) {
+      pts[r][r] = pts[r-1][r] + pts[r][r-1];
+      
+      for(int c = r + 1; c < size; c++) {
+        pts[r][c] = pts[r-1][c] + pts[r][c-1];
+        pts[c][r] = pts[c-1][r] + pts[c][r-1];
+      }
+    }
+    
+    long paths = pts[size-1][size-1];
+    
+    System.out.println("PATHS: "+paths);
+    for(int i = 0; i < size; i++) {
+      for(int j = 0; j < size; j++) {
+        System.out.println(pts[i][j] + " ");
+      }
+      System.out.println();
+    }
+  }
 }
+

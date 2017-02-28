@@ -7,7 +7,6 @@
  */
 
 public class Sundays {
-	enum Month { Jan, Feb, Mar, Apr, June, Jul, Aug, Sept, Oct, Nov, Dec };
 	
 	public static void main(String[] args) {
 		boolean leapYear = false;

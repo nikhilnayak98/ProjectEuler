@@ -1,8 +1,5 @@
 /*
  * Author: Nikhil Ranjan Nayak
- * Regd.no: 1641012040
- * Branch & Sec: CSE 'F'
- * Brief Desc:
  */
 
 public class LatticePath {
